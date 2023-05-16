@@ -1,0 +1,16 @@
+{
+  "name": "@movlan/core",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "lerna": "^6.6.2"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "private":"true",
+  "scripts": {
+    "build": "yarn lerna run build"
+  }
+}
