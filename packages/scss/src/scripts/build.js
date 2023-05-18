@@ -10,7 +10,7 @@ const getComponents = () => {
   types.forEach((type) => {
     const allFiles = Fs.readdirSync(`src/${type}`).map((file) => ({
       input: `src/${type}/${file}`,
-      output: `src/lib/${file.slice(0, -4)}css`,
+      output: `lib/${file.slice(0, -4)}css`,
     }));
 
     allComponents = [...allComponents, ...allFiles];
@@ -36,5 +36,3 @@ getComponents().forEach(({ input, output }) => {
   compile(input, output);
 });
 
-// console.log(getComponents());
-// C:\Users\bmovl\code\react\react-entpr\scss\src\atoms\Button.scss
