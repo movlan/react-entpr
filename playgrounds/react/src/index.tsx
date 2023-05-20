@@ -1,11 +1,9 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
+import { Color } from '@movlan/react';
 
-import { Button } from '@movlan/react';
+import '@movlan/scss/lib/Utilities'
 
-import '@movlan/scss/lib/Button.css';
+const root = createRoot(document.getElementById('root')!);
 
-ReactDOM.render(
-  <Button label="This is a Button" />,
-  document.querySelector('#root'),
-);
+root.render(<Color hexCode="#29f" />);
