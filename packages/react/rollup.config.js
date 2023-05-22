@@ -2,6 +2,7 @@ import Ts from 'rollup-plugin-typescript2';
 
 export default {
 <<<<<<< HEAD
+<<<<<<< HEAD
   input: [
     'src/index.ts',
     'src/atoms/Color/index.ts',
@@ -12,6 +13,9 @@ export default {
 =======
   input: ['src/index.ts', 'src/atoms/Color/index.ts'],
 >>>>>>> f8ffb93 (finish atom/Color)
+=======
+  input: ['src/index.ts', 'src/atoms/Color/index.ts', 'src/atoms/Image/index.ts'],
+>>>>>>> fe5ba66 (finish foundation package)
   output: {
     dir: 'lib',
     format: 'esm',
