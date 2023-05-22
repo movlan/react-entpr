@@ -1,4 +1,4 @@
-import Color from "./atoms/Color";
-import Spacing from "./foundation/Spacing";
+import Color from './atoms/Color';
+import Image from './atoms/Image';
 
-export { Color, Spacing };
+export { Color, Image };

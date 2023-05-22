@@ -28889,7 +28889,23 @@ if ("development" === 'production') {
     }
   };
 }
-},{"react-dom":"../../../node_modules/react-dom/index.js"}],"../../../node_modules/@movlan/react/lib/foundation/Spacing.js":[function(require,module,exports) {
+},{"react-dom":"../../../node_modules/react-dom/index.js"}],"../../../node_modules/@movlan/foundation/lib/FontSize.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+const fontSizes = {
+  xs: 'xs',
+  sm: 'sm',
+  base: 'base',
+  lg: 'lg',
+  xl: 'xl'
+};
+var _default = Object.freeze(fontSizes);
+exports.default = _default;
+},{}],"../../../node_modules/@movlan/foundation/lib/Spacing.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -28917,10 +28933,30 @@ const spaces = {
   xxxl: 'xxxl'
   // 96px
 };
+var _default = Object.freeze(spaces);
+exports.default = _default;
+},{}],"../../../node_modules/@movlan/foundation/lib/index.js":[function(require,module,exports) {
+"use strict";
 
-var Spacing = Object.freeze(spaces);
-exports.default = Spacing;
-},{}],"../../../node_modules/@movlan/react/lib/atoms/Color/Color.js":[function(require,module,exports) {
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+Object.defineProperty(exports, "FontSize", {
+  enumerable: true,
+  get: function () {
+    return _FontSize.default;
+  }
+});
+Object.defineProperty(exports, "Spacing", {
+  enumerable: true,
+  get: function () {
+    return _Spacing.default;
+  }
+});
+var _FontSize = _interopRequireDefault(require("./FontSize"));
+var _Spacing = _interopRequireDefault(require("./Spacing"));
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+},{"./FontSize":"../../../node_modules/@movlan/foundation/lib/FontSize.js","./Spacing":"../../../node_modules/@movlan/foundation/lib/Spacing.js"}],"../../../node_modules/@movlan/react/lib/atoms/Color/Color.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -28928,12 +28964,12 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 var _react = _interopRequireDefault(require("react"));
-var _Spacing = _interopRequireDefault(require("../../foundation/Spacing.js"));
+var _foundation = require("@movlan/foundation");
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 const Color = ({
   hexCode,
-  width = _Spacing.default.sm,
-  height = _Spacing.default.sm
+  width = _foundation.Spacing.sm,
+  height = _foundation.Spacing.sm
 }) => {
   const className = `dse-width-${width} dse-height-${height}`;
   return _react.default.createElement("div", {
@@ -28944,7 +28980,31 @@ const Color = ({
   });
 };
 exports.default = Color;
-},{"react":"../../../node_modules/react/index.js","../../foundation/Spacing.js":"../../../node_modules/@movlan/react/lib/foundation/Spacing.js"}],"../../../node_modules/@movlan/react/lib/index.js":[function(require,module,exports) {
+},{"react":"../../../node_modules/react/index.js","@movlan/foundation":"../../../node_modules/@movlan/foundation/lib/index.js"}],"../../../node_modules/@movlan/react/lib/atoms/Image/Image.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _react = _interopRequireDefault(require("react"));
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+const Image = props => {
+  const {
+    width,
+    height,
+    alt,
+    src
+  } = props;
+  const className = `dse-width-${width} dse-height-${height}`;
+  return _react.default.createElement("img", {
+    className: className,
+    alt: alt,
+    src: src
+  });
+};
+exports.default = Image;
+},{"react":"../../../node_modules/react/index.js"}],"../../../node_modules/@movlan/react/lib/index.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -28956,16 +29016,16 @@ Object.defineProperty(exports, "Color", {
     return _Color.default;
   }
 });
-Object.defineProperty(exports, "Spacing", {
+Object.defineProperty(exports, "Image", {
   enumerable: true,
   get: function () {
-    return _Spacing.default;
+    return _Image.default;
   }
 });
 var _Color = _interopRequireDefault(require("./atoms/Color/Color.js"));
-var _Spacing = _interopRequireDefault(require("./foundation/Spacing.js"));
+var _Image = _interopRequireDefault(require("./atoms/Image/Image.js"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-},{"./atoms/Color/Color.js":"../../../node_modules/@movlan/react/lib/atoms/Color/Color.js","./foundation/Spacing.js":"../../../node_modules/@movlan/react/lib/foundation/Spacing.js"}],"../../../node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
+},{"./atoms/Color/Color.js":"../../../node_modules/@movlan/react/lib/atoms/Color/Color.js","./atoms/Image/Image.js":"../../../node_modules/@movlan/react/lib/atoms/Image/Image.js"}],"../../../node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
 var bundleURL = null;
 function getBundleURLCached() {
   if (!bundleURL) {
@@ -29031,9 +29091,14 @@ var _react2 = require("@movlan/react");
 require("@movlan/scss/lib/Utilities");
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 var root = (0, _client.createRoot)(document.getElementById('root'));
-root.render(_react.default.createElement(_react2.Color, {
+root.render(_react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_react2.Color, {
   hexCode: "#29f"
-}));
+}), _react.default.createElement(_react2.Image, {
+  width: 'xl',
+  height: 'xl',
+  alt: 'roof tops',
+  src: 'https://images.unsplash.com/photo-1684258663024-00ddd14a0eae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1364&q=80'
+})));
 },{"react":"../../../node_modules/react/index.js","react-dom/client":"../../../node_modules/react-dom/client.js","@movlan/react":"../../../node_modules/@movlan/react/lib/index.js","@movlan/scss/lib/Utilities":"../../../node_modules/@movlan/scss/lib/Utilities.css"}],"../../../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -29059,7 +29124,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52462" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58312" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
