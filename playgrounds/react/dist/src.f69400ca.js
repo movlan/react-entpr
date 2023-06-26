@@ -29004,6 +29004,65 @@ const Image = props => {
   });
 };
 exports.default = Image;
+},{"react":"../../../node_modules/react/index.js"}],"../../../node_modules/@movlan/react/lib/atoms/Text/Text.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _react = _interopRequireDefault(require("react"));
+var _foundation = require("@movlan/foundation");
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+const Text = ({
+  size = _foundation.FontSize.base,
+  children
+}) => {
+  const className = `dse-text dse-text-${size}`;
+  return _react.default.createElement("p", {
+    className: className
+  }, children);
+};
+exports.default = Text;
+},{"react":"../../../node_modules/react/index.js","@movlan/foundation":"../../../node_modules/@movlan/foundation/lib/index.js"}],"../../../node_modules/@movlan/react/lib/atoms/Margin/Margin.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _react = _interopRequireDefault(require("react"));
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+const Margin = props => {
+  const {
+    space = 'xxxs',
+    children,
+    top,
+    left,
+    right,
+    bottom
+  } = props;
+  let className = ``;
+  if (!top && !bottom && !left && !right) {
+    className = `dse-margin-${space}`;
+  }
+  if (left) {
+    className = `${className} dse-margin-left-${space}`;
+  }
+  if (right) {
+    className = `${className} dse-margin-right-${space}`;
+  }
+  if (top) {
+    className = `${className} dse-margin-top-${space}`;
+  }
+  if (bottom) {
+    className = `${className} dse-margin-bottom-${space}`;
+  }
+  return _react.default.createElement("div", {
+    className: className
+  }, children);
+};
+exports.default = Margin;
 },{"react":"../../../node_modules/react/index.js"}],"../../../node_modules/@movlan/react/lib/index.js":[function(require,module,exports) {
 "use strict";
 
@@ -29022,10 +29081,24 @@ Object.defineProperty(exports, "Image", {
     return _Image.default;
   }
 });
+Object.defineProperty(exports, "Margin", {
+  enumerable: true,
+  get: function () {
+    return _Margin.default;
+  }
+});
+Object.defineProperty(exports, "Text", {
+  enumerable: true,
+  get: function () {
+    return _Text.default;
+  }
+});
 var _Color = _interopRequireDefault(require("./atoms/Color/Color.js"));
 var _Image = _interopRequireDefault(require("./atoms/Image/Image.js"));
+var _Text = _interopRequireDefault(require("./atoms/Text/Text.js"));
+var _Margin = _interopRequireDefault(require("./atoms/Margin/Margin.js"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-},{"./atoms/Color/Color.js":"../../../node_modules/@movlan/react/lib/atoms/Color/Color.js","./atoms/Image/Image.js":"../../../node_modules/@movlan/react/lib/atoms/Image/Image.js"}],"../../../node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
+},{"./atoms/Color/Color.js":"../../../node_modules/@movlan/react/lib/atoms/Color/Color.js","./atoms/Image/Image.js":"../../../node_modules/@movlan/react/lib/atoms/Image/Image.js","./atoms/Text/Text.js":"../../../node_modules/@movlan/react/lib/atoms/Text/Text.js","./atoms/Margin/Margin.js":"../../../node_modules/@movlan/react/lib/atoms/Margin/Margin.js"}],"../../../node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
 var bundleURL = null;
 function getBundleURLCached() {
   if (!bundleURL) {
@@ -29082,24 +29155,55 @@ module.exports = reloadCSS;
         module.hot.dispose(reloadCSS);
         module.hot.accept(reloadCSS);
       
-},{"_css_loader":"../../../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"index.tsx":[function(require,module,exports) {
+},{"_css_loader":"../../../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../../../node_modules/@movlan/scss/lib/Margin.css":[function(require,module,exports) {
+
+        var reloadCSS = require('_css_loader');
+        module.hot.dispose(reloadCSS);
+        module.hot.accept(reloadCSS);
+      
+},{"_css_loader":"../../../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../../../node_modules/@movlan/scss/lib/Text.css":[function(require,module,exports) {
+
+        var reloadCSS = require('_css_loader');
+        module.hot.dispose(reloadCSS);
+        module.hot.accept(reloadCSS);
+      
+},{"_css_loader":"../../../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../../../node_modules/@movlan/scss/lib/global.css":[function(require,module,exports) {
+
+        var reloadCSS = require('_css_loader');
+        module.hot.dispose(reloadCSS);
+        module.hot.accept(reloadCSS);
+      
+},{"_css_loader":"../../../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"App.tsx":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _react = _interopRequireDefault(require("react"));
+var _react2 = require("@movlan/react");
+require("@movlan/scss/lib/Utilities.css");
+require("@movlan/scss/lib/Margin.css");
+require("@movlan/scss/lib/Text.css");
+require("@movlan/scss/lib/global.css");
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var App = function App() {
+  return _react.default.createElement("div", null, _react.default.createElement(_react2.Margin, null, _react.default.createElement(_react2.Text, {
+    size: "xs"
+  }, "this is some text")));
+};
+var _default = App;
+exports.default = _default;
+},{"react":"../../../node_modules/react/index.js","@movlan/react":"../../../node_modules/@movlan/react/lib/index.js","@movlan/scss/lib/Utilities.css":"../../../node_modules/@movlan/scss/lib/Utilities.css","@movlan/scss/lib/Margin.css":"../../../node_modules/@movlan/scss/lib/Margin.css","@movlan/scss/lib/Text.css":"../../../node_modules/@movlan/scss/lib/Text.css","@movlan/scss/lib/global.css":"../../../node_modules/@movlan/scss/lib/global.css"}],"index.tsx":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
 var _client = require("react-dom/client");
-var _react2 = require("@movlan/react");
-require("@movlan/scss/lib/Utilities");
+var _App = _interopRequireDefault(require("./App"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 var root = (0, _client.createRoot)(document.getElementById('root'));
-root.render(_react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_react2.Color, {
-  hexCode: "#29f"
-}), _react.default.createElement(_react2.Image, {
-  width: 'xl',
-  height: 'xl',
-  alt: 'roof tops',
-  src: 'https://images.unsplash.com/photo-1684258663024-00ddd14a0eae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1364&q=80'
-})));
-},{"react":"../../../node_modules/react/index.js","react-dom/client":"../../../node_modules/react-dom/client.js","@movlan/react":"../../../node_modules/@movlan/react/lib/index.js","@movlan/scss/lib/Utilities":"../../../node_modules/@movlan/scss/lib/Utilities.css"}],"../../../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+root.render(_react.default.createElement(_App.default, null));
+},{"react":"../../../node_modules/react/index.js","react-dom/client":"../../../node_modules/react-dom/client.js","./App":"App.tsx"}],"../../../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -29124,7 +29228,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58312" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61597" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
