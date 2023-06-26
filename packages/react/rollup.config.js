@@ -9,5 +9,5 @@ export default {
     sourcemap: true,
   },
   plugins: [Ts()],
-  external: ['react'],
+  external: ['react', '@movlan/foundation'],
 };

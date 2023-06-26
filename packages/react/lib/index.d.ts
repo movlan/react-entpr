@@ -1,3 +1,4 @@
 import Color from './atoms/Color';
 import Image from './atoms/Image';
-export { Color, Image };
+import Text from './atoms/Text';
+export { Color, Image, Text };
