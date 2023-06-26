@@ -1,1 +1,9 @@
-{"version":3,"file":"index.js","sources":[],"sourcesContent":[],"names":[],"mappings":""}
+<<<<<<< HEAD
+<<<<<<< HEAD
+{"version":3,"file":"index.js","sources":[],"sourcesContent":[],"names":[],"mappings":";;;"}
+=======
+{"version":3,"file":"index.js","sources":[],"sourcesContent":[],"names":[],"mappings":";"}
+>>>>>>> f8ffb93 (finish atom/Color)
+=======
+{"version":3,"file":"index.js","sources":[],"sourcesContent":[],"names":[],"mappings":";;;"}
+>>>>>>> bc863ae (lesson 31)
