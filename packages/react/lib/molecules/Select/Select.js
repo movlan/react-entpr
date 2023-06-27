@@ -7,6 +7,22 @@ const KEY_CODES = {
     NUMPAD_ENTER: 'NumpadEnter',
     SPACE: 'Space',
     DOWN_ARROW: 'ArrowDown',
+    UP_ARROW: 'ArrowUp',
+    ESC: 'Escape',
+};
+const getPreviousOptionIndex = (currentIndex, options) => {
+    if (currentIndex === null)
+        return 0;
+    if (currentIndex === 0)
+        return options.length - 1;
+    return currentIndex - 1;
+};
+const getNextOptionIndex = (currentIndex, options) => {
+    if (currentIndex === null)
+        return 0;
+    if (currentIndex === options.length - 1)
+        return 0;
+    return currentIndex + 1;
 };
 const Select = (props) => {
     const { onOptionSelected: handler, options = [], label = 'Please select an option...', renderOption, } = props;
@@ -24,7 +40,7 @@ const Select = (props) => {
                 ref.current.focus();
             }
         }
-    }, [isOpen]);
+    }, [isOpen, highlightedIndex]);
     const onOptionSelected = (option, optionIndex) => {
         if (handler) {
             handler(option, optionIndex);
@@ -35,15 +51,26 @@ const Select = (props) => {
     const onLabelClick = () => {
         setIsOpen((prevState) => !prevState);
     };
-    const highlightItem = (optionIdx) => {
+    const highlightOption = (optionIdx) => {
         setHighlightedIndex(optionIdx);
     };
     const onButtonKeyDown = (event) => {
         event.preventDefault();
         if (Object.values(KEY_CODES).includes(event.code) && !isOpen) {
             setIsOpen(true);
-            highlightItem(0);
+            highlightOption(0);
         }
+    };
+    const onOptionKeyDown = (event) => {
+        console.log(event.code);
+        if (event.code === KEY_CODES.ESC)
+            setIsOpen(false);
+        if (event.code === KEY_CODES.UP_ARROW)
+            highlightOption(getPreviousOptionIndex(highlightedIndex, options));
+        if (event.code === KEY_CODES.DOWN_ARROW)
+            highlightOption(getNextOptionIndex(highlightedIndex, options));
+        if (event.code === KEY_CODES.ENTER && highlightedIndex !== null)
+            onOptionSelected(options[highlightedIndex], highlightedIndex);
     };
     return (React.createElement("div", { className: "dse-select" },
         React.createElement("button", { "aria-haspopup": true, "aria-expanded": isOpen ? true : undefined, "aria-controls": "dse-select-list", className: "dse-select__label", onClick: onLabelClick, onKeyDown: onButtonKeyDown },
@@ -58,9 +85,11 @@ const Select = (props) => {
                 isSelected,
                 getOptionRecommendedProps: (overrideProps = {}) => ({
                     onClick: () => onOptionSelected(option, idx),
-                    onMouseEnter: () => highlightItem(idx),
-                    onMouseLeave: () => highlightItem(null),
+                    onMouseEnter: () => highlightOption(idx),
+                    onMouseLeave: () => highlightOption(null),
+                    onKeyDown: onOptionKeyDown,
                     className: clsx('dse-select__option', isSelected && 'dse-select__option--selected', isHighlighted && 'dse-select__option--highlighted'),
+                    'aria-checked': isSelected ? true : undefined,
                     tabIndex: isHighlighted ? -1 : 0,
                     key: option.value,
                     ref: optionRefs[idx],
