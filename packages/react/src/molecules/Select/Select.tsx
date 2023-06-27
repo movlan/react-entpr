@@ -123,6 +123,7 @@ const Select = (props: SelectProps) => {
         className="dse-select__label"
         onClick={onLabelClick}
         onKeyDown={onButtonKeyDown}
+        data-testid='DseSelectButton'
       >
         <Text>{selectedIndex === null ? label : options[selectedIndex].label}</Text>
         <svg
@@ -156,7 +157,9 @@ const Select = (props: SelectProps) => {
                   isSelected && 'dse-select__option--selected',
                   isHighlighted && 'dse-select__option--highlighted',
                 ),
+                role: 'menuitemradio',
                 'aria-checked': isSelected ? true : undefined,
+                'aria-label': option.label,
                 tabIndex: isHighlighted ? -1 : 0,
                 key: option.value,
                 ref: optionRefs[idx],
