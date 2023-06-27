@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { ReactNode, useState } from 'react';
 import Text from '../../atoms/Text/Text';
 
 interface SelectOption {
@@ -6,14 +6,26 @@ interface SelectOption {
   value: string;
 }
 
+interface RenderOptionProps {
+  isSelected: boolean;
+  option: SelectOption;
+  getOptionRecommendedProps: (overrideProps?: object) => object;
+}
+
 interface SelectProps {
   onOptionSelected?: (option: SelectOption, optionIndex: number) => void;
   options?: SelectOption[];
   label?: string;
+  renderOption?: (props: RenderOptionProps) => ReactNode;
 }
 
 const Select = (props: SelectProps) => {
-  const { onOptionSelected: handler, options = [], label = 'Please select an option...' } = props;
+  const {
+    onOptionSelected: handler,
+    options = [],
+    label = 'Please select an option...',
+    renderOption,
+  } = props;
 
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [selectedIndex, setSelectedIndex] = useState<null | number>(null);
@@ -35,6 +47,7 @@ const Select = (props: SelectProps) => {
       <button className="dse-select__label" onClick={onLabelClick}>
         <Text>{selectedIndex === null ? label : options[selectedIndex].label}</Text>
         <svg
+          className={`dse-select__caret dse-select__caret--${isOpen ? 'open' : 'closed'}`}
           width="1rem"
           height="1rem"
           xmlns="http://www.w3.org/2000/svg"
@@ -42,7 +55,6 @@ const Select = (props: SelectProps) => {
           viewBox="0 0 24 24"
           strokeWidth={1.5}
           stroke="currentColor"
-          className="w-6 h-6"
         >
           <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
         </svg>
@@ -51,6 +63,22 @@ const Select = (props: SelectProps) => {
         <ul className="dse-select__overlay">
           {options.map((option, idx) => {
             const isSelected = idx === selectedIndex;
+
+            const renderOptionProps = {
+              option,
+              isSelected,
+              getOptionRecommendedProps: (overrideProps = {}) => ({
+                className: `dse-select__option ${isSelected ? 'dse-select__option--selected' : ''}`,
+                key: option.value,
+                onClick: () => onOptionSelected(option, idx),
+                ...overrideProps,
+              }),
+            };
+
+            if (renderOption) {
+              return renderOption(renderOptionProps);
+            }
+
             return (
               <li
                 className={`dse-select__option ${isSelected ? 'dse-select__option--selected' : ''}`}
@@ -67,7 +95,6 @@ const Select = (props: SelectProps) => {
                     viewBox="0 0 24 24"
                     strokeWidth={1.5}
                     stroke="currentColor"
-                    className="w-6 h-6"
                   >
                     <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                   </svg>
