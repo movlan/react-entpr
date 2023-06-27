@@ -1,10 +1,11 @@
 import React from 'react';
-import { Margin, Select } from '@movlan/react';
+import { Select } from '@movlan/react';
 
+import '@movlan/scss/lib/global.css';
 import '@movlan/scss/lib/Utilities.css';
 import '@movlan/scss/lib/Margin.css';
 import '@movlan/scss/lib/Text.css';
-import '@movlan/scss/lib/global.css';
+import '@movlan/scss/lib/Select.css';
 
 const options = [
   {
@@ -24,7 +25,8 @@ const options = [
 const App = () => {
   return (
     <div>
-      <Select options={options}  />
+      <Select options={options} />
+      <p>this is some text</p>
     </div>
   );
 };
