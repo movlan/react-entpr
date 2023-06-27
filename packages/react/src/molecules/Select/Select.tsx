@@ -47,7 +47,11 @@ const Select = (props: SelectProps) => {
       {isOpen ? (
         <ul className="dse-select__overlay">
           {options.map((option, idx) => (
-            <li key={option.value} onClick={() => onOptionSelected(option, idx)}>
+            <li
+              className="dse-select__option"
+              key={option.value}
+              onClick={() => onOptionSelected(option, idx)}
+            >
               {option.label}
             </li>
           ))}
