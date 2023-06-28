@@ -16,5 +16,5 @@ export default {
     sourcemap: true,
   },
   plugins: [Ts()],
-  external: ['react', '@movlan/foundation'],
+  external: ['react', '@movlan/foundation', 'clsx'],
 };

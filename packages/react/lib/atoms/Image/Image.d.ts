@@ -1,6 +1,6 @@
 import React from 'react';
 import { Spacing } from '@movlan/foundation';
-type ImageProps = {
+declare type ImageProps = {
     width: keyof typeof Spacing;
     height: keyof typeof Spacing;
     alt: string;

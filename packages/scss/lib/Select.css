@@ -131,6 +131,7 @@
 .dse-select__overlay {
   padding: 0rem;
   margin: 0rem;
+  display: none;
   border: 1px solid var(--dse-form-border-color, #f1f2f3);
   background: var(--dse-form-bg-color, #fff);
   z-index: 99;
@@ -139,6 +140,10 @@
   position: absolute;
   width: 100%;
   top: calc(100% + 10px);
+}
+
+.dse-select__overlay--open {
+  display: block;
 }
 
 .dse-select__option {

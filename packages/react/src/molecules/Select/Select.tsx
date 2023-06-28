@@ -123,7 +123,7 @@ const Select = (props: SelectProps) => {
         className="dse-select__label"
         onClick={onLabelClick}
         onKeyDown={onButtonKeyDown}
-        data-testid='DseSelectButton'
+        data-testid="DseSelectButton"
       >
         <Text>{selectedIndex === null ? label : options[selectedIndex].label}</Text>
         <svg
@@ -139,8 +139,12 @@ const Select = (props: SelectProps) => {
           <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
         </svg>
       </button>
-      {isOpen ? (
-        <ul role="menu" id="dse-select-list" className="dse-select__overlay">
+      {
+        <ul
+          role="menu"
+          id="dse-select-list"
+          className={clsx('dse-select__overlay', { 'dse-select__overlay--open': isOpen })}
+        >
           {options.map((option, idx) => {
             const isSelected = idx === selectedIndex;
             const isHighlighted = idx === highlightedIndex;
@@ -152,11 +156,10 @@ const Select = (props: SelectProps) => {
                 onMouseEnter: () => highlightOption(idx),
                 onMouseLeave: () => highlightOption(null),
                 onKeyDown: onOptionKeyDown,
-                className: clsx(
-                  'dse-select__option',
-                  isSelected && 'dse-select__option--selected',
-                  isHighlighted && 'dse-select__option--highlighted',
-                ),
+                className: clsx('dse-select__option', {
+                  'dse-select__option--selected': isSelected,
+                  'dse-select__option--highlighted': isHighlighted,
+                }),
                 role: 'menuitemradio',
                 'aria-checked': isSelected ? true : undefined,
                 'aria-label': option.label,
@@ -191,7 +194,7 @@ const Select = (props: SelectProps) => {
             );
           })}
         </ul>
-      ) : null}
+      }
     </div>
   );
 };

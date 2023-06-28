@@ -73,11 +73,11 @@ const Select = (props) => {
             onOptionSelected(options[highlightedIndex], highlightedIndex);
     };
     return (React.createElement("div", { className: "dse-select" },
-        React.createElement("button", { "aria-haspopup": true, "aria-expanded": isOpen ? true : undefined, "aria-controls": "dse-select-list", className: "dse-select__label", onClick: onLabelClick, onKeyDown: onButtonKeyDown, "data-testid": 'DseSelectButton' },
+        React.createElement("button", { "aria-haspopup": true, "aria-expanded": isOpen ? true : undefined, "aria-controls": "dse-select-list", className: "dse-select__label", onClick: onLabelClick, onKeyDown: onButtonKeyDown, "data-testid": "DseSelectButton" },
             React.createElement(Text, null, selectedIndex === null ? label : options[selectedIndex].label),
             React.createElement("svg", { className: `dse-select__caret dse-select__caret--${isOpen ? 'open' : 'closed'}`, width: "1rem", height: "1rem", xmlns: "http://www.w3.org/2000/svg", fill: "none", viewBox: "0 0 24 24", strokeWidth: 1.5, stroke: "currentColor" },
                 React.createElement("path", { strokeLinecap: "round", strokeLinejoin: "round", d: "M19.5 8.25l-7.5 7.5-7.5-7.5" }))),
-        isOpen ? (React.createElement("ul", { role: "menu", id: "dse-select-list", className: "dse-select__overlay" }, options.map((option, idx) => {
+        React.createElement("ul", { role: "menu", id: "dse-select-list", className: clsx('dse-select__overlay', { 'dse-select__overlay--open': isOpen }) }, options.map((option, idx) => {
             const isSelected = idx === selectedIndex;
             const isHighlighted = idx === highlightedIndex;
             const renderOptionProps = {
@@ -88,7 +88,10 @@ const Select = (props) => {
                     onMouseEnter: () => highlightOption(idx),
                     onMouseLeave: () => highlightOption(null),
                     onKeyDown: onOptionKeyDown,
-                    className: clsx('dse-select__option', isSelected && 'dse-select__option--selected', isHighlighted && 'dse-select__option--highlighted'),
+                    className: clsx('dse-select__option', {
+                        'dse-select__option--selected': isSelected,
+                        'dse-select__option--highlighted': isHighlighted,
+                    }),
                     role: 'menuitemradio',
                     'aria-checked': isSelected ? true : undefined,
                     'aria-label': option.label,
@@ -101,11 +104,11 @@ const Select = (props) => {
             if (renderOption) {
                 return renderOption(renderOptionProps);
             }
-            return (React.createElement("li", { ...renderOptionProps.getOptionRecommendedProps() },
+            return (React.createElement("li", Object.assign({}, renderOptionProps.getOptionRecommendedProps()),
                 React.createElement(Text, null, option.label),
                 isSelected && (React.createElement("svg", { width: "1rem", height: "1rem", xmlns: "http://www.w3.org/2000/svg", fill: "none", viewBox: "0 0 24 24", strokeWidth: 1.5, stroke: "currentColor" },
                     React.createElement("path", { strokeLinecap: "round", strokeLinejoin: "round", d: "M4.5 12.75l6 6 9-13.5" })))));
-        }))) : null));
+        }))));
 };
 
 export { Select as default };

@@ -35,6 +35,8 @@
     @include padding('none');
     @include margin('none');
 
+    display: none;
+
     border: 1px solid $form-border-color;
     background: $form-bg-color;
     z-index: 99;
@@ -48,6 +50,10 @@
     width: 100%;
 
     top: calc(100% + 10px);
+
+    &--open {
+      display: block;
+    }
   }
 
   &__option {
