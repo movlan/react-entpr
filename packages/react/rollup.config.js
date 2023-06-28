@@ -1,7 +1,14 @@
 import Ts from 'rollup-plugin-typescript2';
 
 export default {
-  input: ['src/index.ts', 'src/atoms/Color/index.ts', 'src/atoms/Image/index.ts'],
+  input: [
+    'src/index.ts',
+    'src/atoms/Color/index.ts',
+    'src/atoms/Image/index.ts',
+    'src/atoms/Text/index.ts',
+    'src/atoms/Margin/index.ts',
+    'src/molecules/Select/index.ts',
+  ],
   output: {
     dir: 'lib',
     format: 'esm',
@@ -9,5 +16,5 @@ export default {
     sourcemap: true,
   },
   plugins: [Ts()],
-  external: ['react'],
+  external: ['react', '@movlan/foundation'],
 };
