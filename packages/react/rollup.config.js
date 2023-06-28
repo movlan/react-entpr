@@ -7,6 +7,7 @@ export default {
     'src/atoms/Image/index.ts',
     'src/atoms/Text/index.ts',
     'src/atoms/Margin/index.ts',
+    'src/molecules/Select/index.ts',
   ],
   output: {
     dir: 'lib',

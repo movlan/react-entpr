@@ -6,7 +6,9 @@ export interface TextProps {
   children: ReactNode;
 }
 
-const Text: React.FC<TextProps> = ({ size = FontSize.base, children }) => {
+const Text = (props: TextProps) => {
+  const { size = FontSize.base, children } = props;
+
   const className = `dse-text dse-text-${size}`;
 
   return <p className={className}>{children}</p>;
