@@ -6,7 +6,8 @@ lib/
 
 **/dist
 **/lib
+**/lib/**/*
 **/.cache
 playgrounds/react/.cache/**/*
 
-ready-files/
+ready-files/**/*
