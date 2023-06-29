@@ -11,6 +11,7 @@
     "@storybook/react": "5.3.19",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^14.0.0",
+    "@types/babel__core": "^7.20.1",
     "@types/jest": "^29.5.2",
     "@types/react": "^18.2.6",
     "clsx": "^1.2.1",
