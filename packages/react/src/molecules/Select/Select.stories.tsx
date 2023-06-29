@@ -1,6 +1,5 @@
 import React from 'react';
 import Select from './Select';
-import { withA11Y } from '@storybook/addon-a11y'
 
 import '@movlan/scss/lib/Select.css';
 
@@ -20,8 +19,7 @@ const options = [
 ];
 
 export default {
-  title: 'Molecules|Select',
-  decoretors: withA11Y,
+  title: 'Molecules/Select',
 };
 
 export const Common = () => <Select options={options} />;

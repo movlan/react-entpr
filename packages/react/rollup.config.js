@@ -1,4 +1,4 @@
-import Ts from 'rollup-plugin-typescript2';
+import Ts from '@rollup/plugin-typescript';
 
 export default {
   input: [

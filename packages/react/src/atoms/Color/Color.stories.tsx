@@ -8,7 +8,7 @@ import { Spacing } from '@movlan/foundation';
 import '@movlan/scss/lib/Utilities.css';
 
 export default {
-  title: 'Atoms|Color',
+  title: 'Atoms/Color',
 };
 
 export const Common = () => <Color hexCode={text('HexCode', 'pink')} />;
