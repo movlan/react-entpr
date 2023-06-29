@@ -1,4 +1,4 @@
-import Ts from 'rollup-plugin-typescript2';
+import Ts from '@rollup/plugin-typescript';
 
 export default {
   input: [
@@ -16,5 +16,5 @@ export default {
     sourcemap: true,
   },
   plugins: [Ts()],
-  external: ['react', '@movlan/foundation'],
+  external: ['react', '@movlan/foundation', 'clsx'],
 };
