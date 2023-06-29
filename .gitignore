@@ -2,12 +2,20 @@ node_modules/
 
 .cache/
 
+.parcel-cache/
+
+packages/foundation/lib/
+
 lib/
 
 **/dist
-**/lib
+**/lib/
 **/lib/**/*
+**/storybook-static/
 **/.cache
 playgrounds/react/.cache/**/*
 
 ready-files/**/*
+packages/foundation/lib/**/*
+playgrounds/react/.cache/
+**/.cache/**/*
