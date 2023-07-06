@@ -1,7 +1,7 @@
 import React from 'react';
 import Select from './Select';
 
-import '@movlan/scss/lib/Select.css';
+import '@mvln/scss/lib/Select.css';
 
 const options = [
   {

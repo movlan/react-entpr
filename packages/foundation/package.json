@@ -1,5 +1,5 @@
 {
-  "name": "@movlan/foundation",
+  "name": "@mvln/foundation",
   "version": "1.0.0",
   "main": "lib/index.js",
   "license": "MIT",
@@ -15,5 +15,8 @@
     "build": "tsc",
     "dev": "yarn build -w",
     "test": "jest --verbose"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

@@ -2,10 +2,10 @@ import React from 'react';
 import Color from './Color';
 import { text, select } from '@storybook/addon-knobs';
 
-import { Spacing } from '@movlan/foundation';
+import { Spacing } from '@mvln/foundation';
 
 // css
-import '@movlan/scss/lib/Utilities.css';
+import '@mvln/scss/lib/Utilities.css';
 
 export default {
   title: 'Atoms/Color',

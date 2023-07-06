@@ -1,5 +1,5 @@
 {
-  "name": "@movlan/scss",
+  "name": "@mvln/scss",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
@@ -20,5 +20,8 @@
     "lint:fix": "yarn lint --fix",
     "build": "node src/scripts/build.js",
     "dev": "nodemon --watch src --exec yarn build -e scss"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

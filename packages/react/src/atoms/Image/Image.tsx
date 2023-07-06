@@ -1,5 +1,5 @@
 import React from 'react';
-import { Spacing } from '@movlan/foundation';
+import { Spacing } from '@mvln/foundation';
 
 type ImageProps = {
   width: keyof typeof Spacing;
