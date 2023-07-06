@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "main": "lib/index.js",
   "license": "MIT",
+  "files": [
+    "lib"
+  ],
   "devDependencies": {
     "@babel/preset-react": "^7.22.5",
     "@rollup/plugin-typescript": "^11.1.2",
