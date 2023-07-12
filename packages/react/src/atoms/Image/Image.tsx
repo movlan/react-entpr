@@ -1,7 +1,7 @@
 import React from 'react';
 import { Spacing } from '@mvln/foundation';
 
-type ImageProps = {
+export interface ImageProps {
   width: keyof typeof Spacing;
   height: keyof typeof Spacing;
   alt: string;
