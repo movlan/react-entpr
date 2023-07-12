@@ -1,8 +1,11 @@
 {
-  "name": "@movlan/foundation",
-  "version": "1.0.0",
+  "name": "@mvln/foundation",
+  "version": "0.1.2",
   "main": "lib/index.js",
   "license": "MIT",
+  "files": [
+    "lib"
+  ],
   "devDependencies": {
     "@babel/core": "^7.22.5",
     "@babel/preset-env": "^7.22.5",
@@ -15,5 +18,8 @@
     "build": "tsc",
     "dev": "yarn build -w",
     "test": "jest --verbose"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

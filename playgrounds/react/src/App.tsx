@@ -1,11 +1,11 @@
 import React from 'react';
-import { Margin, Select } from '@movlan/react';
+import { Margin, Select } from '@mvln/react';
 
-import '@movlan/scss/lib/global.css';
-import '@movlan/scss/lib/Utilities.css';
-import '@movlan/scss/lib/Margin.css';
-import '@movlan/scss/lib/Text.css';
-import '@movlan/scss/lib/Select.css';
+import '@mvln/scss/lib/global.css';
+import '@mvln/scss/lib/Utilities.css';
+import '@mvln/scss/lib/Margin.css';
+import '@mvln/scss/lib/Text.css';
+import '@mvln/scss/lib/Select.css';
 
 const options = [
   {

@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import { FontSize } from '@movlan/foundation';
+import { FontSize } from '@mvln/foundation';
 
 export interface TextProps {
   size?: keyof typeof FontSize;
