@@ -13,7 +13,7 @@ jobs:
   builds:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkouts@v2
+      - uses: actions/checkout@v2
 
       - name: Install Dependencies
         run: yarn
