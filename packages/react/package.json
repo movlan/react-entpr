@@ -41,7 +41,6 @@
     "test": "jest --verbose",
     "test:watch": "yarn test --watch",
     "build-storybook": "storybook build",
-    "chromatic": "chromatic --project-token=chpt_f4d0127818ac7ac",
     "storybook": "storybook dev -p 6006"
   },
   "publishConfig": {
