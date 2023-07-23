@@ -7,6 +7,11 @@ const getComponents = () => {
 
   const types = ['atoms', 'molecules'];
 
+  if (!Fs.existsSync('lib')){
+    Fs.mkdirSync('lib');
+}
+
+
   types.forEach((type) => {
     const allFiles = Fs.readdirSync(`src/${type}`).map((file) => ({
       input: `src/${type}/${file}`,

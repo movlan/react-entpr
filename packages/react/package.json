@@ -1,8 +1,11 @@
 {
-  "name": "@movlan/react",
-  "version": "1.0.0",
+  "name": "@mvln/react",
+  "version": "0.1.2",
   "main": "lib/index.js",
   "license": "MIT",
+  "files": [
+    "lib"
+  ],
   "devDependencies": {
     "@babel/preset-react": "^7.22.5",
     "@rollup/plugin-typescript": "^11.1.2",
@@ -38,7 +41,9 @@
     "test": "jest --verbose",
     "test:watch": "yarn test --watch",
     "build-storybook": "storybook build",
-    "chromatic": "chromatic --project-token=chpt_f4d0127818ac7ac",
     "storybook": "storybook dev -p 6006"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
